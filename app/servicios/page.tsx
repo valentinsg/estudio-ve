@@ -567,7 +567,7 @@ export default function ServiciosPage() {
                         {/* Service Info */}
                         <div className="flex items-center gap-4 mb-4 text-sm text-charcoal-500 dark:text-charcoal-400">
                           <div className="flex items-center gap-1">
-                            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                            <Star className="h-4 w-4 fill-orange-400 text-orange-400" />
                             <span>{service.rating}</span>
                           </div>
                           <div className="flex items-center gap-1">
