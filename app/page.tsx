@@ -12,6 +12,7 @@ import HeaderBlogDropdown from "@/components/header-blog-dropdown"
 import { YouTubeSection } from "@/components/youtube-section"
 import { NewsletterSignup } from "@/components/newsletter-signup"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
+import { AboutSection } from "@/components/about-section"
 import {
   Calendar,
   Instagram,
@@ -512,6 +513,9 @@ export default function EstudioVePage() {
           </Button>
         </div>
       </section>
+
+      {/* Sobre Ve */}
+      <AboutSection />
 
       {/* YouTube Section */}
       <YouTubeSection />
