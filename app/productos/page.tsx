@@ -6,6 +6,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { CategoryShield } from "@/components/category-shield"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import {
@@ -146,6 +147,11 @@ const products: Product[] = [
 
 const categories = ["Todos", "Ebook", "Plantillas", "Curso"]
 const types = ["Todos", "ebook", "template", "course", "tool"]
+const shieldColors: Record<string, string> = {
+  Ebook: "fill-blue-600",
+  Plantillas: "fill-green-600",
+  Curso: "fill-orange-600",
+}
 
 export default function ProductosPage() {
   const [filteredProducts, setFilteredProducts] = useState(products)
@@ -510,7 +516,11 @@ export default function ProductosPage() {
                         alt={product.name}
                         className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <Badge className="absolute top-4 left-4 bg-primary text-white">{product.category}</Badge>
+                      <CategoryShield
+                        className="absolute top-4 left-4"
+                        label={product.category}
+                        color={shieldColors[product.category]}
+                      />
                       <div className="absolute top-4 right-4">
                         {product.type === "ebook" && <BookOpen className="h-5 w-5 text-white" />}
                         {product.type === "template" && <FileText className="h-5 w-5 text-white" />}
@@ -522,7 +532,7 @@ export default function ProductosPage() {
                     <div className="p-6">
                       <div className="flex items-center gap-2 mb-3">
                         <div className="flex items-center gap-1">
-                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                          <Star className="h-4 w-4 fill-primary text-primary" />
                           <span className="text-sm font-medium">{product.rating}</span>
                         </div>
                         <div className="flex items-center gap-1 text-charcoal-500 dark:text-charcoal-400">
