@@ -25,6 +25,7 @@ import {
 } from "lucide-react"
 import { useTheme } from "next-themes"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
+import { usePathname } from "next/navigation"
 
 interface Product {
   id: string
@@ -156,6 +157,7 @@ export default function ProductosPage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { theme, setTheme } = useTheme()
+  const pathname = usePathname()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -289,13 +291,13 @@ export default function ProductosPage() {
             <nav className="hidden md:flex items-center space-x-8">
               <Link
                 href="/"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                className={`text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname === "/" ? "text-primary font-semibold" : ""}`}
               >
                 Inicio
               </Link>
               <Link
-                href="/#servicios"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                href="/servicios"
+                className={`text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/servicios") ? "text-primary font-semibold" : ""}`}
               >
                 Servicios
               </Link>
@@ -335,13 +337,13 @@ export default function ProductosPage() {
               <nav className="flex flex-col space-y-4 pt-4">
                 <Link
                   href="/"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                  className={`text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname === "/" ? "text-primary font-semibold" : ""}`}
                 >
                   Inicio
                 </Link>
                 <Link
-                  href="/#servicios"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                  href="/servicios"
+                  className={`text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/servicios") ? "text-primary font-semibold" : ""}`}
                 >
                   Servicios
                 </Link>

@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Calendar, Clock, User, Search, Filter, ArrowLeft, Eye, Heart, Menu, X } from "lucide-react"
 import { useTheme } from "next-themes"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
+import { usePathname } from "next/navigation"
 
 interface BlogPost {
   id: string
@@ -127,6 +128,7 @@ export default function BlogPage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { theme, setTheme } = useTheme()
+  const pathname = usePathname()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -210,19 +212,19 @@ export default function BlogPage() {
             <nav className="hidden md:flex items-center space-x-8">
               <Link
                 href="/"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                className={`text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname === "/" ? "text-primary font-semibold" : ""}`}
               >
                 Inicio
               </Link>
               <Link
-                href="/#servicios"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                href="/servicios"
+                className={`text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/servicios") ? "text-primary font-semibold" : ""}`}
               >
                 Servicios
               </Link>
               <Link
                 href="/productos"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                className={`text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/productos") ? "text-primary font-semibold" : ""}`}
               >
                 Productos
               </Link>
@@ -256,19 +258,19 @@ export default function BlogPage() {
               <nav className="flex flex-col space-y-4 pt-4">
                 <Link
                   href="/"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                  className={`text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname === "/" ? "text-primary font-semibold" : ""}`}
                 >
                   Inicio
                 </Link>
                 <Link
-                  href="/#servicios"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                  href="/servicios"
+                  className={`text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/servicios") ? "text-primary font-semibold" : ""}`}
                 >
                   Servicios
                 </Link>
                 <Link
                   href="/productos"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                  className={`text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/productos") ? "text-primary font-semibold" : ""}`}
                 >
                   Productos
                 </Link>

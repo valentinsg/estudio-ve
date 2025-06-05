@@ -34,11 +34,13 @@ import {
   Rocket,
 } from "lucide-react"
 import { useTheme } from "next-themes"
+import { usePathname } from "next/navigation"
 
 export default function EstudioVePage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { theme, setTheme } = useTheme()
+  const pathname = usePathname()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -83,12 +85,12 @@ export default function EstudioVePage() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <button
-                onClick={() => scrollToSection("servicios")}
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+              <Link
+                href="/servicios"
+                className={`text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/servicios") ? "text-primary font-semibold" : ""}`}
               >
                 Servicios
-              </button>
+              </Link>
               <button
                 onClick={() => scrollToSection("sobre-nosotros")}
                 className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
@@ -97,7 +99,7 @@ export default function EstudioVePage() {
               </button>
               <Link
                 href="/productos"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                className={`text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/productos") ? "text-primary font-semibold" : ""}`}
               >
                 Productos
               </Link>
@@ -136,12 +138,12 @@ export default function EstudioVePage() {
           {isMobileMenuOpen && (
             <div className="md:hidden mt-4 pb-4 border-t border-charcoal-200/20 dark:border-charcoal-700/20 animate-slide-up">
               <nav className="flex flex-col space-y-4 pt-4">
-                <button
-                  onClick={() => scrollToSection("servicios")}
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                <Link
+                  href="/servicios"
+                  className={`text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/servicios") ? "text-primary font-semibold" : ""}`}
                 >
                   Servicios
-                </button>
+                </Link>
                 <button
                   onClick={() => scrollToSection("sobre-nosotros")}
                   className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
@@ -150,7 +152,7 @@ export default function EstudioVePage() {
                 </button>
                 <Link
                   href="/productos"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                  className={`text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/productos") ? "text-primary font-semibold" : ""}`}
                 >
                   Productos
                 </Link>

@@ -32,6 +32,7 @@ import {
 } from "lucide-react"
 import { useTheme } from "next-themes"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
+import { usePathname } from "next/navigation"
 
 interface Service {
   id: string
@@ -261,6 +262,7 @@ export default function ServiciosPage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { theme } = useTheme()
+  const pathname = usePathname()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -337,7 +339,7 @@ export default function ServiciosPage() {
             <nav className="hidden md:flex items-center space-x-8">
               <Link
                 href="/"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                className={`text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname === "/" ? "text-primary font-semibold" : ""}`}
               >
                 Inicio
               </Link>
@@ -349,13 +351,13 @@ export default function ServiciosPage() {
               </Link>
               <Link
                 href="/productos"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                className={`text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/productos") ? "text-primary font-semibold" : ""}`}
               >
                 Productos
               </Link>
               <Link
                 href="/blog"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                className={`text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/blog") ? "text-primary font-semibold" : ""}`}
               >
                 Blog
               </Link>
@@ -389,7 +391,7 @@ export default function ServiciosPage() {
               <nav className="flex flex-col space-y-4 pt-4">
                 <Link
                   href="/"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                  className={`text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname === "/" ? "text-primary font-semibold" : ""}`}
                 >
                   Inicio
                 </Link>
@@ -401,13 +403,13 @@ export default function ServiciosPage() {
                 </Link>
                 <Link
                   href="/productos"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                  className={`text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/productos") ? "text-primary font-semibold" : ""}`}
                 >
                   Productos
                 </Link>
                 <Link
                   href="/blog"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                  className={`text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/blog") ? "text-primary font-semibold" : ""}`}
                 >
                   Blog
                 </Link>

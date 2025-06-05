@@ -25,6 +25,7 @@ import {
 } from "lucide-react"
 import { useTheme } from "next-themes"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
+import { usePathname } from "next/navigation"
 
 interface BlogPost {
   id: string
@@ -149,6 +150,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const [likes, setLikes] = useState(0)
   const [readingProgress, setReadingProgress] = useState(0)
   const { theme } = useTheme()
+  const pathname = usePathname()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -270,16 +272,19 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             <nav className="hidden md:flex items-center space-x-8">
               <Link
                 href="/"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                className={`text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname === "/" ? "text-primary font-semibold" : ""}`}
               >
                 Inicio
               </Link>
-              <Link href="/blog" className="text-primary font-medium">
+              <Link
+                href="/blog"
+                className={`text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/blog") ? "text-primary font-semibold" : ""}`}
+              >
                 Blog
               </Link>
               <Link
                 href="/productos"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                className={`text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/productos") ? "text-primary font-semibold" : ""}`}
               >
                 Productos
               </Link>
@@ -313,16 +318,19 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               <nav className="flex flex-col space-y-4 pt-4">
                 <Link
                   href="/"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                  className={`text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname === "/" ? "text-primary font-semibold" : ""}`}
                 >
                   Inicio
                 </Link>
-                <Link href="/blog" className="text-left text-primary font-medium">
+                <Link
+                  href="/blog"
+                  className={`text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/blog") ? "text-primary font-semibold" : ""}`}
+                >
                   Blog
                 </Link>
                 <Link
                   href="/productos"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                  className={`text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium ${pathname.startsWith("/productos") ? "text-primary font-semibold" : ""}`}
                 >
                   Productos
                 </Link>
