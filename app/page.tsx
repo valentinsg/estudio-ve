@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { StoreSection } from "@/components/store-integration"
-import { BlogSection } from "@/components/blog-section"
+import HeaderBlogDropdown from "@/components/header-blog-dropdown"
 import { YouTubeSection } from "@/components/youtube-section"
 import { NewsletterSignup } from "@/components/newsletter-signup"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
@@ -108,6 +108,8 @@ export default function EstudioVePage() {
                 Contenido
               </button>
 
+              <HeaderBlogDropdown />
+
               <div className="flex items-center space-x-4">
                 <DarkModeToggle />
                 <Button
@@ -160,6 +162,12 @@ export default function EstudioVePage() {
                 >
                   Contenido
                 </button>
+                <Link
+                  href="/blog"
+                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                >
+                  Blog
+                </Link>
                 <Button
                   onClick={() => scrollToSection("mentoria")}
                   className="bg-primary hover:bg-primary/90 text-white w-full group"
@@ -495,9 +503,6 @@ export default function EstudioVePage() {
 
       {/* YouTube Section */}
       <YouTubeSection />
-
-      {/* Blog Section */}
-      <BlogSection />
 
       {/* Newsletter Section */}
       <section className="py-20 bg-gradient-to-br from-white to-cream-100 dark:from-charcoal-800 dark:to-charcoal-900">
