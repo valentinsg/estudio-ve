@@ -6,29 +6,42 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
-import { Mail, Send, CheckCircle, Gift, Sparkles, TrendingUp } from "lucide-react"
+import {
+  Mail,
+  Send,
+  CheckCircle,
+  Gift,
+  Sparkles,
+  TrendingUp,
+  Percent,
+} from "lucide-react"
 
 export function NewsletterSignup() {
+  const [name, setName] = useState("")
   const [email, setEmail] = useState("")
+  const [subscriberName, setSubscriberName] = useState("")
   const [isSubscribed, setIsSubscribed] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!email) return
+    if (!name || !email) return
 
     setIsLoading(true)
 
     // Simular llamada a API
     await new Promise((resolve) => setTimeout(resolve, 1500))
 
+    setSubscriberName(name)
     setIsSubscribed(true)
     setIsLoading(false)
+    setName("")
     setEmail("")
 
     // Reset después de 3 segundos
     setTimeout(() => {
       setIsSubscribed(false)
+      setSubscriberName("")
     }, 3000)
   }
 
@@ -39,7 +52,9 @@ export function NewsletterSignup() {
           <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce">
             <CheckCircle className="h-8 w-8 text-white" />
           </div>
-          <h3 className="text-2xl font-bold mb-2 text-primary">¡Bienvenido a la comunidad!</h3>
+          <h3 className="text-2xl font-bold mb-2 text-primary">
+            {subscriberName ? `¡Gracias, ${subscriberName}!` : "¡Bienvenido a la comunidad!"}
+          </h3>
           <p className="text-charcoal-600 dark:text-charcoal-300">
             Te has suscrito exitosamente. Revisa tu email para confirmar tu suscripción.
           </p>
@@ -59,11 +74,11 @@ export function NewsletterSignup() {
             Newsletter de <span className="text-primary">Estudio Ve</span>
           </h3>
           <p className="text-charcoal-600 dark:text-charcoal-300 mb-4">
-            Recibe contenido exclusivo, tips de productividad y las últimas novedades directamente en tu inbox
+            Sumate y obtené un kit de productividad gratis junto a nuestras novedades directo en tu inbox
           </p>
 
           {/* Benefits */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
             <div className="flex items-center gap-2 text-sm">
               <Gift className="h-4 w-4 text-primary" />
               <span>Recursos gratuitos</span>
@@ -76,11 +91,23 @@ export function NewsletterSignup() {
               <TrendingUp className="h-4 w-4 text-primary" />
               <span>Estrategias probadas</span>
             </div>
+            <div className="flex items-center gap-2 text-sm">
+              <Percent className="h-4 w-4 text-primary" />
+              <span>Descuentos exclusivos</span>
+            </div>
           </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex flex-col sm:flex-row gap-3">
+            <Input
+              type="text"
+              placeholder="Tu nombre"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className="flex-1 border-charcoal-300 dark:border-charcoal-600 focus:border-primary"
+            />
             <Input
               type="email"
               placeholder="tu@email.com"
