@@ -32,12 +32,14 @@ import {
   Zap,
   Sparkles,
   Rocket,
+  ArrowUp,
 } from "lucide-react"
 import { useTheme } from "next-themes"
 
 export default function EstudioVePage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [showScrollTop, setShowScrollTop] = useState(false)
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
@@ -45,6 +47,7 @@ export default function EstudioVePage() {
     setMounted(true)
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
+      setShowScrollTop(window.scrollY > 400)
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
@@ -188,7 +191,7 @@ export default function EstudioVePage() {
             }}
           />
           {/* Overlay gradiente */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 dark:via-black/30 dark:to-orange-900/30 to-orange-900/30" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-orange-800/30 dark:from-charcoal-900/70 dark:via-charcoal-800/40 dark:to-orange-900/20" />
           {/* Overlay adicional para mejor contraste */}
           <div className="absolute inset-0 dark:bg-black/20 bg-cream-50/5" />
         </motion.div>
@@ -200,8 +203,8 @@ export default function EstudioVePage() {
           transition={{ duration: 0.5 }}
           className="absolute inset-0 overflow-hidden pointer-events-none"
         >
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-yellow-400/10 rounded-full blur-2xl animate-pulse delay-1000" />
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl opacity-70 animate-pulse-slow" />
+          <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-yellow-400/20 rounded-full blur-2xl opacity-70 animate-pulse-slow delay-1000" />
         </motion.div>
 
         {/* Contenido principal */}
@@ -258,7 +261,7 @@ export default function EstudioVePage() {
           {[...Array(6)].map((_, i) => (
             <div
               key={i}
-              className={`absolute w-2 h-2 bg-orange-400/30 rounded-full animate-pulse`}
+              className={`absolute w-3 h-3 bg-orange-400/80 rounded-full blur-sm opacity-75 animate-pulse-slow`}
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -696,6 +699,15 @@ export default function EstudioVePage() {
           </div>
         </div>
       </footer>
+      {showScrollTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-primary text-white shadow-lg hover:scale-110 transition-transform"
+          aria-label="Volver arriba"
+        >
+          <ArrowUp className="h-5 w-5" />
+        </button>
+      )}
     </div>
   )
 }
