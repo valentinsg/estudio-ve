@@ -211,11 +211,12 @@ export default function ProductosPage() {
 
   const handlePurchase = async (product: Product) => {
     try {
-      const button = document.querySelector(`[data-product-id="${product.id}"]`) as HTMLButtonElement
-      if (button) {
-        button.disabled = true
-        button.textContent = "Procesando..."
-      }
+    const button = document.querySelector(`[data-product-id="${product.id}"]`) as HTMLButtonElement
+    if (button) {
+      button.disabled = true
+      button.innerHTML =
+        '<div class="mr-2 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>Procesando...'
+    }
 
       const response = await fetch("/api/create-checkout-session", {
         method: "POST",
