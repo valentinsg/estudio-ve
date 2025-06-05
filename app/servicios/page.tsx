@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -384,13 +385,20 @@ export default function ServiciosPage() {
           </div>
 
           {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t border-charcoal-200/20 dark:border-charcoal-700/20">
-              <nav className="flex flex-col space-y-4 pt-4">
-                <Link
-                  href="/"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-                >
+          <AnimatePresence initial={false}>
+            {isMobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="md:hidden overflow-hidden mt-4 pb-4 border-t border-charcoal-200/20 dark:border-charcoal-700/20"
+              >
+                <nav className="flex flex-col space-y-4 pt-4">
+                  <Link
+                    href="/"
+                    className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                  >
                   Inicio
                 </Link>
                 <Link
@@ -415,8 +423,9 @@ export default function ServiciosPage() {
                   <Link href="#contacto">Solicitar Cotización</Link>
                 </Button>
               </nav>
-            </div>
-          )}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </header>
 
@@ -539,11 +548,19 @@ export default function ServiciosPage() {
             </div>
           ) : (
             <div className="grid lg:grid-cols-2 gap-8">
-              {filteredServices.map((service) => {
+              {filteredServices.map((service, index) => {
                 const IconComponent = service.icon
                 return (
-                  <Card
+                  <motion.div
                     key={service.id}
+                    variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    whileHover={{ scale: 1.02 }}
+                  >
+                  <Card
                     className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-white dark:bg-charcoal-800 overflow-hidden"
                   >
                     <CardContent className="p-0">
@@ -654,6 +671,7 @@ export default function ServiciosPage() {
                       </div>
                     </CardContent>
                   </Card>
+                  </motion.div>
                 )
               })}
             </div>
