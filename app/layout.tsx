@@ -5,6 +5,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@/components/analytics"
 import { Suspense } from "react"
+import LoadingLogo from "@/components/loading-logo"
 import JsonLdScript from "@/components/json-ld-script"
 
 
@@ -95,7 +96,13 @@ export default function RootLayout({
         <JsonLdScript />
       </head>
       <body className={`${inter.className} antialiased`}>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={
+            <div className="min-h-screen flex items-center justify-center bg-cream-50 dark:bg-charcoal-800">
+              <LoadingLogo />
+            </div>
+          }
+        >
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange={false}>
             {children}
             <Analytics />
