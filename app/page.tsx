@@ -222,15 +222,12 @@ export default function EstudioVePage() {
           transition={{ duration: 0.5 }}
           className="relative z-20 mx-auto"
         >
-          <h1 className="text-6xl font-semibold text-cream-50 bg-orange-500/10 px-4 py-2 rounded-full backdrop-blur-sm border border-orange-500/20 uppercase tracking-wider">
-            Estudio Creativo & Educativo
+          <h1 className="text-5xl md:text-6xl font-bold text-cream-50 mb-6">
+            Estudio Ve
           </h1>
-          <div className="text-lg md:text-xl text-zinc-300 mb-12 max-w-2xl mx-auto leading-relaxed backdrop-blur-sm bg-black/20 p-6 rounded-2xl border border-white/10">
-
+          <div className="text-lg md:text-xl text-zinc-300 mb-12 max-w-xl mx-auto">
             <p>
-              Acompañamos a creadores, marcas y equipos a construir sistemas con propósito.
-              <br />
-              <span className="text-orange-300 font-medium">Desde una plantilla hasta una plataforma.</span>
+              Impulsamos tu creatividad con estrategia digital.
             </p>
           </div>
 
@@ -238,7 +235,7 @@ export default function EstudioVePage() {
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
             <button className="group relative overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-orange-500/25">
               <span className="relative z-10 flex items-center justify-center gap-2">
-                Ver productos o servicios
+                Ver opciones
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
