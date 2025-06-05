@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -330,13 +331,20 @@ export default function ProductosPage() {
           </div>
 
           {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t border-charcoal-200/20 dark:border-charcoal-700/20">
-              <nav className="flex flex-col space-y-4 pt-4">
-                <Link
-                  href="/"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-                >
+          <AnimatePresence initial={false}>
+            {isMobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="md:hidden overflow-hidden mt-4 pb-4 border-t border-charcoal-200/20 dark:border-charcoal-700/20"
+              >
+                <nav className="flex flex-col space-y-4 pt-4">
+                  <Link
+                    href="/"
+                    className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                  >
                   Inicio
                 </Link>
                 <Link
@@ -351,12 +359,13 @@ export default function ProductosPage() {
                 >
                   Contenido
                 </Link>
-                <Button asChild className="bg-primary hover:bg-primary/90 text-white w-full">
-                  <Link href="/#mentoria">Agendar Mentoría</Link>
-                </Button>
+                  <Button asChild className="bg-primary hover:bg-primary/90 text-white w-full">
+                    <Link href="/#mentoria">Agendar Mentoría</Link>
+                  </Button>
               </nav>
-            </div>
-          )}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </header>
 

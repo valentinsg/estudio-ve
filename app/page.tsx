@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -133,15 +133,22 @@ export default function EstudioVePage() {
           </div>
 
           {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t border-charcoal-200/20 dark:border-charcoal-700/20 animate-slide-up">
-              <nav className="flex flex-col space-y-4 pt-4">
-                <button
-                  onClick={() => scrollToSection("servicios")}
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-                >
-                  Servicios
-                </button>
+          <AnimatePresence initial={false}>
+            {isMobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="md:hidden overflow-hidden mt-4 pb-4 border-t border-charcoal-200/20 dark:border-charcoal-700/20"
+              >
+                <nav className="flex flex-col space-y-4 pt-4">
+                  <button
+                    onClick={() => scrollToSection("servicios")}
+                    className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                  >
+                    Servicios
+                  </button>
                 <button
                   onClick={() => scrollToSection("sobre-nosotros")}
                   className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
@@ -168,8 +175,9 @@ export default function EstudioVePage() {
                   Agendar Mentoría
                 </Button>
               </nav>
-            </div>
-          )}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </header>
 
@@ -288,6 +296,14 @@ export default function EstudioVePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Mentorías 1:1 */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ scale: 1.03 }}
+            >
             <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg bg-white dark:bg-charcoal-800 animate-scale-in">
               <CardContent className="p-8 text-center h-full flex flex-col">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
@@ -306,11 +322,19 @@ export default function EstudioVePage() {
                 </Button>
               </CardContent>
             </Card>
+            </motion.div>
 
             {/* Desarrollo Web */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ scale: 1.03 }}
+            >
             <Card
               className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg bg-white dark:bg-charcoal-800 animate-scale-in"
-              style={{ animationDelay: "0.1s" }}
             >
               <CardContent className="p-8 text-center h-full flex flex-col">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
@@ -332,11 +356,19 @@ export default function EstudioVePage() {
                 </Button>
               </CardContent>
             </Card>
+            </motion.div>
 
             {/* Diseño Gráfico */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ scale: 1.03 }}
+            >
             <Card
               className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg bg-white dark:bg-charcoal-800 animate-scale-in"
-              style={{ animationDelay: "0.2s" }}
             >
               <CardContent className="p-8 text-center h-full flex flex-col">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
@@ -358,11 +390,19 @@ export default function EstudioVePage() {
                 </Button>
               </CardContent>
             </Card>
+            </motion.div>
 
             {/* Producción Audiovisual */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ scale: 1.03 }}
+            >
             <Card
               className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg bg-white dark:bg-charcoal-800 animate-scale-in"
-              style={{ animationDelay: "0.3s" }}
             >
               <CardContent className="p-8 text-center h-full flex flex-col">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
@@ -386,11 +426,19 @@ export default function EstudioVePage() {
                 </Button>
               </CardContent>
             </Card>
+            </motion.div>
 
             {/* Marketing Digital */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{ scale: 1.03 }}
+            >
             <Card
               className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg bg-white dark:bg-charcoal-800 animate-scale-in"
-              style={{ animationDelay: "0.4s" }}
             >
               <CardContent className="p-8 text-center h-full flex flex-col">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
@@ -412,11 +460,19 @@ export default function EstudioVePage() {
                 </Button>
               </CardContent>
             </Card>
+            </motion.div>
 
             {/* Consultoría Estratégica */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              whileHover={{ scale: 1.03 }}
+            >
             <Card
               className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg bg-white dark:bg-charcoal-800 animate-scale-in"
-              style={{ animationDelay: "0.5s" }}
             >
               <CardContent className="p-8 text-center h-full flex flex-col">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
@@ -440,6 +496,7 @@ export default function EstudioVePage() {
                 </Button>
               </CardContent>
             </Card>
+            </motion.div>
           </div>
 
           {/* Ver todos los servicios */}
