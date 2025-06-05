@@ -522,7 +522,7 @@ export default function ProductosPage() {
                     <div className="p-6">
                       <div className="flex items-center gap-2 mb-3">
                         <div className="flex items-center gap-1">
-                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                          <Star className="h-4 w-4 fill-primary text-primary" />
                           <span className="text-sm font-medium">{product.rating}</span>
                         </div>
                         <div className="flex items-center gap-1 text-charcoal-500 dark:text-charcoal-400">
