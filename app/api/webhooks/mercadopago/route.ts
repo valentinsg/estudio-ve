@@ -1,4 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server"
+import { getMercadoPagoClient } from "@/lib/mercadopago"
 
 export async function POST(request: NextRequest) {
   try {
@@ -40,16 +41,14 @@ async function handlePaymentNotification(paymentId: string) {
   try {
     console.log("Procesando notificación de pago:", paymentId)
 
+    const mpClient = getMercadoPagoClient()
+
     // Si tenemos el token de MercadoPago, obtener detalles reales
-    if (process.env.MERCADOPAGO_ACCESS_TOKEN) {
+    if (mpClient) {
       try {
-        const { MercadoPagoConfig, Payment } = await import("mercadopago")
+        const { Payment } = await import("mercadopago")
 
-        const client = new MercadoPagoConfig({
-          accessToken: process.env.MERCADOPAGO_ACCESS_TOKEN,
-        })
-
-        const payment = new Payment(client)
+        const payment = new Payment(mpClient)
         const paymentData = await payment.get({ id: paymentId })
 
         console.log("Datos del pago obtenidos:", {
