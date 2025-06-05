@@ -342,7 +342,7 @@ export default function ServiciosPage() {
                 Inicio
               </Link>
               <Link
-                href="/#sobre-nosotros"
+                href="/sobre-ve"
                 className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
               >
                 Sobre Ve
@@ -394,7 +394,7 @@ export default function ServiciosPage() {
                   Inicio
                 </Link>
                 <Link
-                  href="/#sobre-nosotros"
+                  href="/sobre-ve"
                   className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
                 >
                   Sobre Ve

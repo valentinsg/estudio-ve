@@ -89,12 +89,12 @@ export default function EstudioVePage() {
               >
                 Servicios
               </button>
-              <button
-                onClick={() => scrollToSection("sobre-nosotros")}
+              <Link
+                href="/sobre-ve"
                 className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
               >
                 Sobre Ve
-              </button>
+              </Link>
               <Link
                 href="/productos"
                 className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
@@ -142,12 +142,12 @@ export default function EstudioVePage() {
                 >
                   Servicios
                 </button>
-                <button
-                  onClick={() => scrollToSection("sobre-nosotros")}
+                <Link
+                  href="/sobre-ve"
                   className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
                 >
                   Sobre Ve
-                </button>
+                </Link>
                 <Link
                   href="/productos"
                   className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
@@ -647,12 +647,12 @@ export default function EstudioVePage() {
               <h4 className="font-bold mb-6 text-lg">Conecta</h4>
               <ul className="space-y-3">
                 <li>
-                  <button
-                    onClick={() => scrollToSection("sobre-nosotros")}
+                  <Link
+                    href="/sobre-ve"
                     className="text-charcoal-400 hover:text-primary transition-colors duration-300"
                   >
                     Sobre Ve
-                  </button>
+                  </Link>
                 </li>
                 <li>
                   <button
