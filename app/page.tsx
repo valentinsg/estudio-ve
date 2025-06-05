@@ -104,6 +104,12 @@ export default function EstudioVePage() {
               >
                 Productos
               </Link>
+              <Link
+                href="/resultados"
+                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+              >
+                Resultados
+              </Link>
               <button
                 onClick={() => scrollToSection("contenido")}
                 className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
@@ -158,6 +164,12 @@ export default function EstudioVePage() {
                   className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
                 >
                   Productos
+                </Link>
+                <Link
+                  href="/resultados"
+                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
+                >
+                  Resultados
                 </Link>
                 <button
                   onClick={() => scrollToSection("contenido")}
