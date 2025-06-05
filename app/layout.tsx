@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@/components/analytics"
 import { Suspense } from "react"
 import JsonLdScript from "@/components/json-ld-script"
+import Header from "@/components/header"
 
 
 const inter = Inter({ subsets: ["latin"] })
@@ -97,6 +98,7 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <Suspense fallback={<div>Loading...</div>}>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange={false}>
+            <Header />
             {children}
             <Analytics />
           </ThemeProvider>

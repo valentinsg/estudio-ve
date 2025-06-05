@@ -8,10 +8,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { StoreSection } from "@/components/store-integration"
-import HeaderBlogDropdown from "@/components/header-blog-dropdown"
 import { YouTubeSection } from "@/components/youtube-section"
 import { NewsletterSignup } from "@/components/newsletter-signup"
-import { DarkModeToggle } from "@/components/dark-mode-toggle"
 import { AboutSection } from "@/components/about-section"
 import {
   Calendar,
@@ -19,11 +17,8 @@ import {
   Youtube,
   Mail,
   ArrowRight,
-  Play,
   Users,
   Lightbulb,
-  Menu,
-  X,
   Star,
   Code,
   Palette,
@@ -31,7 +26,6 @@ import {
   Megaphone,
   TrendingUp,
   Zap,
-  Sparkles,
   Rocket,
   ArrowUp,
 } from "lucide-react"
@@ -66,138 +60,8 @@ export default function EstudioVePage() {
 
   return (
     <div className="min-h-screen bg-cream-50 dark:bg-charcoal-800 text-charcoal-800 dark:text-cream-50 transition-colors duration-300">
-      {/* Header */}
-      <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
-          ? "bg-cream-50 dark:bg-charcoal-800 shadow-md"
-          : "bg-cream-50 dark:bg-charcoal-800"
-          }`}
-      >
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <Image
-                src="/images/estudio-ve-logo.png"
-                alt="Estudio Ve"
-                width={180}
-                height={60}
-                className={`h-10 w-auto transition-all duration-300 ${theme === "dark" ? "brightness-0 invert" : ""}`}
-              />
-            </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <button
-                onClick={() => scrollToSection("servicios")}
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-              >
-                Servicios
-              </button>
-              <Link
-                href="/sobre-ve"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-              >
-                Sobre Ve
-              </Link>
-              <Link
-                href="/productos"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-              >
-                Productos
-              </Link>
-              <Link
-                href="/resultados"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-              >
-                Resultados
-              </Link>
-              <button
-                onClick={() => scrollToSection("contenido")}
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-              >
-                Contenido
-              </button>
-
-              <HeaderBlogDropdown />
-
-              <div className="flex items-center space-x-4">
-                <DarkModeToggle />
-                <Button
-                  onClick={() => scrollToSection("mentoria")}
-                  className="bg-primary hover:bg-primary/90 text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl group"
-                >
-                  <Sparkles className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform" />
-                  Agendar Mentoría
-                </Button>
-              </div>
-            </nav>
-
-            {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center space-x-2">
-              <DarkModeToggle />
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 rounded-full hover:bg-charcoal-100 dark:hover:bg-charcoal-800 transition-colors duration-300"
-              >
-                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t border-charcoal-200/20 dark:border-charcoal-700/20 animate-slide-up">
-              <nav className="flex flex-col space-y-4 pt-4">
-                <button
-                  onClick={() => scrollToSection("servicios")}
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-                >
-                  Servicios
-                </button>
-                <Link
-                  href="/sobre-ve"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-                >
-                  Sobre Ve
-                </Link>
-                <Link
-                  href="/productos"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-                >
-                  Productos
-                </Link>
-                <Link
-                  href="/resultados"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-                >
-                  Resultados
-                </Link>
-                <button
-                  onClick={() => scrollToSection("contenido")}
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-                >
-                  Contenido
-                </button>
-                <Link
-                  href="/blog"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-                >
-                  Blog
-                </Link>
-                <Button
-                  onClick={() => scrollToSection("mentoria")}
-                  className="bg-primary hover:bg-primary/90 text-white w-full group"
-                >
-                  <Sparkles className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform" />
-                  Agendar Mentoría
-                </Button>
-              </nav>
-            </div>
-          )}
-        </div>
-      </header>
-
-      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-24 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col px-6 py-22 overflow-hidden">
         {/* Fondo con overlay */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -206,68 +70,88 @@ export default function EstudioVePage() {
           className="absolute inset-0"
         >
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
             style={{
               backgroundImage: "url('/images/fondo-inicio.png')"
             }}
           />
           {/* Overlay gradiente */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-orange-800/30 dark:from-charcoal-900/70 dark:via-charcoal-800/40 dark:to-orange-900/20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-orange-800/30 dark:from-charcoal-900/60 dark:via-charcoal-800/40 dark:to-orange-900/15" />
           {/* Overlay adicional para mejor contraste */}
-          <div className="absolute inset-0 dark:bg-black/20 bg-cream-50/5" />
+          <div className="absolute inset-0 dark:bg-black/30 bg-cream-50/5" />
         </motion.div>
 
         {/* Elementos decorativos */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ x: 0 }}
+          animate={{ x: 5 }}
+          transition={{ duration: 0.5, repeat: Infinity, ease: "linear" }}
           className="absolute inset-0 overflow-hidden pointer-events-none"
         >
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl opacity-70 animate-pulse-slow" />
-          <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-yellow-400/20 rounded-full blur-2xl opacity-70 animate-pulse-slow delay-1000" />
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl opacity-50" />
+          <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-yellow-400/20 rounded-full blur-2xl opacity-50" />
         </motion.div>
 
         {/* Contenido principal */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="relative z-20 mx-auto"
-        >
-          <h1 className="text-5xl md:text-6xl font-bold text-cream-50 mb-6">
-            Estudio Ve
-          </h1>
-          <div className="text-lg md:text-xl text-zinc-300 mb-12 max-w-xl mx-auto">
-            <p>
-              Impulsamos tu creatividad con estrategia digital.
-            </p>
-          </div>
+        <div className="relative z-20 mx-auto flex-1 flex flex-col items-center justify-center w-full h-full ">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="w-full max-w-4xl text-center mt-32"
+          >
+            <div className="flex justify-center">
+              <Image
+                src="/images/estudiove-logo.png"
+                alt="Logo Estudio Ve"
+                className="h-auto w-full max-w-[725px] drop-shadow-[6px_3px_0.8px_rgba(15,15,15,1)] brightness-110 transform perspective-1000 rotate-3d"
+                style={{
+                  transformStyle: "preserve-3d",
+                  transform: "rotateY(-10deg) rotateX(10deg)"
+                }}
+                width={725}
+                height={725}
+              />
+            </div>
 
-          {/* Botones de acción */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-            <button className="group relative overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-orange-500/25">
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                Ver opciones
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </button>
+            <h1 className="text-3xl md:text-5xl text-[#f5e9cf] text-balance tracking-tight leading-tight drop-shadow-[0_3px_8px_rgba(0,0,0,0.6)] mb-16">
+              Tu estudio creativo, de desarrollo y dirección estratégica.
+            </h1>
+          </motion.div>
 
-            <button className="group relative overflow-hidden bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black px-8 py-4 rounded-2xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-yellow-500/25">
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                Agendar mentoría
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </button>
-          </div>
+          {/* Botones de acción - Ahora en la parte inferior */}
+          <motion.div
+            className="w-full max-w-2xl mx-auto mt-2 pb-14"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+              <button className="group relative overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-orange-500/25">
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  Ver opciones
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </button>
 
-        </motion.div>
+              <button className="group relative overflow-hidden border-2 border-orange-400/30 bg-gradient-to-r from-transparent via-orange-500/10 to-transparent hover:from-orange-500/20 hover:via-orange-500/30 hover:to-orange-500/20 hover:border-orange-400/60 text-white backdrop-blur-sm px-8 py-4 rounded-2xl text-lg font-semibold shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-orange-400/20">
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  <svg className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2z" />
+                  </svg>
+                  Agendar mentoría
+                </span>
+                {/* Efecto de brillo al hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:translate-x-full transition-all duration-700 transform -translate-x-full" />
+                {/* Borde interior brillante */}
+                <div className="absolute inset-[1px] rounded-2xl bg-gradient-to-r from-orange-500/5 to-orange-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </button>
+            </div>
+          </motion.div>
+        </div>
 
         {/* Elementos flotantes */}
         <motion.div
@@ -277,14 +161,21 @@ export default function EstudioVePage() {
           className="absolute inset-0 overflow-hidden pointer-events-none"
         >
           {[...Array(6)].map((_, i) => (
-            <div
+            <motion.div
               key={i}
-              className={`absolute w-3 h-3 bg-orange-400/80 rounded-full blur-sm opacity-75 animate-pulse-slow`}
+              className={`absolute w-3 h-3 bg-orange-400/80 rounded-full blur-sm opacity-25`}
               style={{
                 left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${i * 0.5}s`,
-                animationDuration: `${2 + Math.random() * 2}s`
+                top: `${Math.random() * 100}%`
+              }}
+              animate={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`
+              }}
+              transition={{
+                duration: 5,
+                ease: "linear",
+                repeat: Infinity
               }}
             />
           ))}
@@ -307,14 +198,18 @@ export default function EstudioVePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {/* Mentorías 1:1 */}
             <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg bg-white dark:bg-charcoal-800 animate-scale-in">
               <CardContent className="p-8 text-center h-full flex flex-col">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <Users className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Mentorías 1:1</h3>
+                <Image
+                  src="/images/logo-mentorias.png"
+                  alt="Mentorías"
+                  width={64}
+                  height={64}
+                  className="object-contain w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
+                />
+                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Mentorías</h3>
                 <p className="text-charcoal-600 dark:text-charcoal-300 mb-6 flex-grow">
                   Sesiones personalizadas para acelerar tu crecimiento creativo y estratégico
                 </p>
@@ -334,12 +229,16 @@ export default function EstudioVePage() {
               style={{ animationDelay: "0.1s" }}
             >
               <CardContent className="p-8 text-center h-full flex flex-col">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <Code className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Desarrollo Web</h3>
+                <Image
+                  src="/images/logo-desarrollo.png"
+                  alt="Desarrollo de software"
+                  width={64}
+                  height={64}
+                  className="object-contain w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
+                />
+                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Desarrollo de software</h3>
                 <p className="text-charcoal-600 dark:text-charcoal-300 mb-6 flex-grow">
-                  Sitios web y aplicaciones que conectan con tu audiencia y generan resultados
+                  Aplicaciones y software que potencian tu productividad y eficiencia
                 </p>
                 <Button
                   asChild
@@ -354,69 +253,19 @@ export default function EstudioVePage() {
               </CardContent>
             </Card>
 
-            {/* Diseño Gráfico */}
-            <Card
-              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg bg-white dark:bg-charcoal-800 animate-scale-in"
-              style={{ animationDelay: "0.2s" }}
-            >
-              <CardContent className="p-8 text-center h-full flex flex-col">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <Palette className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Diseño Gráfico</h3>
-                <p className="text-charcoal-600 dark:text-charcoal-300 mb-6 flex-grow">
-                  Identidad visual que comunica tu esencia y diferencia tu marca
-                </p>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="border-primary text-primary hover:bg-primary hover:text-white w-full group-hover:scale-105 transition-all duration-300"
-                >
-                  <Link href="/servicios">
-                    <Palette className="mr-2 h-4 w-4" />
-                    Ver portfolio
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Producción Audiovisual */}
-            <Card
-              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg bg-white dark:bg-charcoal-800 animate-scale-in"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <CardContent className="p-8 text-center h-full flex flex-col">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <Camera className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">
-                  Producción Audiovisual
-                </h3>
-                <p className="text-charcoal-600 dark:text-charcoal-300 mb-6 flex-grow">
-                  Videos, podcasts y contenido multimedia que cuenta tu historia
-                </p>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="border-primary text-primary hover:bg-primary hover:text-white w-full group-hover:scale-105 transition-all duration-300"
-                >
-                  <Link href="/servicios">
-                    <Camera className="mr-2 h-4 w-4" />
-                    Ver trabajos
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
             {/* Marketing Digital */}
             <Card
               className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg bg-white dark:bg-charcoal-800 animate-scale-in"
               style={{ animationDelay: "0.4s" }}
             >
               <CardContent className="p-8 text-center h-full flex flex-col">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <Megaphone className="h-8 w-8 text-white" />
-                </div>
+                <Image
+                  src="/images/logo-direccion.png"
+                  alt="Marketing Digital"
+                  width={64}
+                  height={64}
+                  className="object-contain w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
+                />
                 <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Marketing Digital</h3>
                 <p className="text-charcoal-600 dark:text-charcoal-300 mb-6 flex-grow">
                   Estrategias de marketing que amplifican tu mensaje y hacen crecer tu negocio
@@ -440,14 +289,18 @@ export default function EstudioVePage() {
               style={{ animationDelay: "0.5s" }}
             >
               <CardContent className="p-8 text-center h-full flex flex-col">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <Zap className="h-8 w-8 text-white" />
-                </div>
+                <Image
+                  src="/images/logo-automatizaciones.png"
+                  alt="Automatizaciones & Sistemas"
+                  width={64}
+                  height={64}
+                  className="object-contain w-24 h-24 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
+                />
                 <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">
-                  Consultoría Estratégica
+                  Automatizaciones & Sistemas
                 </h3>
                 <p className="text-charcoal-600 dark:text-charcoal-300 mb-6 flex-grow">
-                  Análisis profundo y roadmap personalizado para escalar tu proyecto
+                  Automatizaciones y sistemas que potencian tu productividad y eficiencia
                 </p>
                 <Button
                   asChild
@@ -463,19 +316,7 @@ export default function EstudioVePage() {
             </Card>
           </div>
 
-          {/* Ver todos los servicios */}
-          <div className="text-center mt-12">
-            <Button
-              asChild
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-white transition-all duration-300 hover:scale-105 group"
-            >
-              <Link href="/servicios">
-                Ver todos los servicios
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-          </div>
+         
         </div>
       </section>
 
@@ -511,6 +352,29 @@ export default function EstudioVePage() {
             Explorar Estudio Ve
             <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-2 transition-transform" />
           </Button>
+        </div>
+      </section>
+
+      {/* Resultados */}
+      <section id="resultados" className="py-20 bg-gradient-to-b from-cream-100 to-cream-50 dark:from-charcoal-800 dark:to-charcoal-900">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal-800 dark:text-cream-50 mb-4">
+              Nuestros Resultados
+            </h2>
+            <p className="text-lg text-charcoal-600 dark:text-charcoal-300 max-w-3xl mx-auto">
+              Descubre los logros y éxitos que hemos alcanzado junto a nuestros clientes y estudiantes.
+            </p>
+          </div>
+          <div className="flex justify-center mt-8">
+            <Link
+              href="/resultados"
+              className="inline-flex items-center px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition-colors duration-300 hover:shadow-lg"
+            >
+              Ver todos los resultados
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
 

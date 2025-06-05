@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -10,7 +9,6 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Calendar, Clock, User, Search, Filter, ArrowLeft, Eye, Heart, Menu, X } from "lucide-react"
 import { useTheme } from "next-themes"
-import { DarkModeToggle } from "@/components/dark-mode-toggle"
 
 interface BlogPost {
   id: string
@@ -186,101 +184,6 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-cream-50 dark:bg-charcoal-900 text-charcoal-800 dark:text-cream-50 transition-colors duration-300">
-      {/* Header */}
-      <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-cream-50/95 dark:bg-charcoal-900/95 backdrop-blur-md shadow-lg border-b border-charcoal-200/20 dark:border-charcoal-700/20"
-            : "bg-transparent"
-        }`}
-      >
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <Image
-                src="/images/estudio-ve-logo.png"
-                alt="Estudio Ve"
-                width={180}
-                height={60}
-                className={`h-10 w-auto transition-all duration-300 ${theme === "dark" ? "brightness-0 invert" : ""}`}
-              />
-            </div>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link
-                href="/"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-              >
-                Inicio
-              </Link>
-              <Link
-                href="/#servicios"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-              >
-                Servicios
-              </Link>
-              <Link
-                href="/productos"
-                className="text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-              >
-                Productos
-              </Link>
-
-              <div className="flex items-center space-x-4">
-                <DarkModeToggle />
-                <Button
-                  asChild
-                  className="bg-primary hover:bg-primary/90 text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-                >
-                  <Link href="/#mentoria">Agendar Mentoría</Link>
-                </Button>
-              </div>
-            </nav>
-
-            {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center space-x-2">
-              <DarkModeToggle />
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 rounded-full hover:bg-charcoal-100 dark:hover:bg-charcoal-800 transition-colors duration-300"
-              >
-                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t border-charcoal-200/20 dark:border-charcoal-700/20">
-              <nav className="flex flex-col space-y-4 pt-4">
-                <Link
-                  href="/"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-                >
-                  Inicio
-                </Link>
-                <Link
-                  href="/#servicios"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-                >
-                  Servicios
-                </Link>
-                <Link
-                  href="/productos"
-                  className="text-left text-charcoal-600 dark:text-charcoal-300 hover:text-primary transition-colors duration-300 font-medium"
-                >
-                  Productos
-                </Link>
-                <Button asChild className="bg-primary hover:bg-primary/90 text-white w-full">
-                  <Link href="/#mentoria">Agendar Mentoría</Link>
-                </Button>
-              </nav>
-            </div>
-          )}
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden pattern-overlay">
         <div className="container mx-auto px-4 relative z-10">
