@@ -77,25 +77,7 @@ const products: Product[] = [
       "Actualizaciones gratuitas",
     ],
   },
-  {
-    id: "brand-workshop",
-    name: "Workshop: Construye tu Marca Personal",
-    description: "Curso intensivo para definir y comunicar tu propuesta de valor única en el mercado",
-    price: 89,
-    image: "/placeholder.svg?height=300&width=400",
-    category: "Curso",
-    rating: 5.0,
-    students: 89,
-    type: "course",
-    duration: "4 horas",
-    features: [
-      "4 horas de contenido en video",
-      "Ejercicios prácticos descargables",
-      "Feedback personalizado",
-      "Certificado de finalización",
-      "Acceso a comunidad privada",
-    ],
-  },
+
   {
     id: "content-calendar-notion",
     name: "Calendario de Contenido Notion",
@@ -121,28 +103,11 @@ const products: Product[] = [
     pages: 85,
     features: ["Contratos y propuestas", "Sistema de facturación", "Gestión de clientes", "Estrategias de pricing"],
   },
-  {
-    id: "video-editing-course",
-    name: "Edición de Video para Creadores",
-    description: "Aprende a editar videos profesionales para redes sociales y YouTube",
-    price: 67,
-    image: "/placeholder.svg?height=300&width=400",
-    category: "Curso",
-    rating: 4.8,
-    students: 134,
-    type: "course",
-    duration: "6 horas",
-    features: [
-      "6 horas de video tutoriales",
-      "Proyectos prácticos",
-      "Recursos y assets incluidos",
-      "Soporte por 30 días",
-    ],
-  },
+
 ]
 
-const categories = ["Todos", "Ebook", "Plantillas", "Curso"]
-const types = ["Todos", "ebook", "template", "course", "tool"]
+const categories = ["Todos", "Ebook", "Plantillas"]
+const types = ["Todos", "ebook", "template", "tool"]
 
 export default function ProductosPage() {
   const [filteredProducts, setFilteredProducts] = useState(products)
@@ -208,12 +173,12 @@ export default function ProductosPage() {
 
   const handlePurchase = async (product: Product) => {
     try {
-    const button = document.querySelector(`[data-product-id="${product.id}"]`) as HTMLButtonElement
-    if (button) {
-      button.disabled = true
-      button.innerHTML =
-        '<div class="mr-2 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>Procesando...'
-    }
+      const button = document.querySelector(`[data-product-id="${product.id}"]`) as HTMLButtonElement
+      if (button) {
+        button.disabled = true
+        button.innerHTML =
+          '<div class="mr-2 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>Procesando...'
+      }
 
       const response = await fetch("/api/create-checkout-session", {
         method: "POST",

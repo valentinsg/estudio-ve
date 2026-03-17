@@ -100,23 +100,34 @@ export default function EstudioVePage() {
             transition={{ duration: 0.5 }}
             className="w-full max-w-4xl text-center mt-32"
           >
-            <div className="flex justify-center">
+            <div className="flex justify-center mb-8">
               <Image
                 src="/images/estudiove-logo.png"
                 alt="Logo Estudio Ve"
-                className="h-auto w-full max-w-[725px] drop-shadow-[6px_3px_0.8px_rgba(15,15,15,1)] brightness-110 transform perspective-1000 rotate-3d"
-                style={{
-                  transformStyle: "preserve-3d",
-                  transform: "rotateY(-10deg) rotateX(10deg)"
-                }}
+                className="h-auto w-full max-w-[400px] md:max-w-[500px] drop-shadow-2xl brightness-110 hover:scale-105 transition-transform duration-700 ease-out"
                 width={725}
                 height={725}
+                priority
               />
             </div>
 
-            <h1 className="text-3xl md:text-5xl text-[#f5e9cf] text-balance tracking-tight leading-tight drop-shadow-[0_3px_8px_rgba(0,0,0,0.6)] mb-16">
-              Tu estudio creativo, de desarrollo y dirección estratégica.
-            </h1>
+            <motion.h1
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.1, duration: 0.8 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#f5e9cf] tracking-tighter leading-[1.1] mb-6 drop-shadow-2xl"
+            >
+              Tecnología que <br className="hidden md:block" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">escala tu negocio.</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-xl md:text-2xl text-cream-100/80 mb-12 max-w-3xl mx-auto font-medium"
+            >
+              Agencia de desarrollo de software premium y estrategias de marketing orientadas a resultados orgánicos y pago.
+            </motion.p>
           </motion.div>
 
           {/* Botones de acción - Ahora en la parte inferior */}
@@ -127,28 +138,28 @@ export default function EstudioVePage() {
             transition={{ delay: 0.3 }}
           >
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <button className="group relative overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-orange-500/25">
+              <Link href="mailto:contacto@estudiove.com" className="group relative overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-orange-500/25">
                 <span className="relative z-10 flex items-center justify-center gap-2">
-                  Ver opciones
+                  Cotizar Proyecto
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </button>
+              </Link>
 
-              <button className="group relative overflow-hidden border-2 border-orange-400/30 bg-gradient-to-r from-transparent via-orange-500/10 to-transparent hover:from-orange-500/20 hover:via-orange-500/30 hover:to-orange-500/20 hover:border-orange-400/60 text-white backdrop-blur-sm px-8 py-4 rounded-2xl text-lg font-semibold shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-orange-400/20">
+              <Link href="/admin" className="group relative overflow-hidden border-2 border-orange-400/30 bg-gradient-to-r from-transparent via-orange-500/10 to-transparent hover:from-orange-500/20 hover:via-orange-500/30 hover:to-orange-500/20 hover:border-orange-400/60 text-white backdrop-blur-sm px-8 py-4 rounded-2xl text-lg font-semibold shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-orange-400/20">
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   <svg className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
                   </svg>
-                  Agendar mentoría
+                  Portal del Cliente
                 </span>
                 {/* Efecto de brillo al hover */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:translate-x-full transition-all duration-700 transform -translate-x-full" />
                 {/* Borde interior brillante */}
                 <div className="absolute inset-[1px] rounded-2xl bg-gradient-to-r from-orange-500/5 to-orange-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </button>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -188,135 +199,146 @@ export default function EstudioVePage() {
           <div className="text-center mb-20">
             <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
               <Zap className="mr-2 h-4 w-4" />
-              Lo que ofrecemos
+              Packs de Software
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Nuestros <span className="text-primary">Servicios</span>
+              Soluciones <span className="text-primary">Listas para Usar</span>
             </h2>
             <p className="text-xl text-charcoal-600 dark:text-charcoal-300 max-w-3xl mx-auto">
-              Herramientas y acompañamiento diseñados para potenciar tu creatividad y estrategia
+              Implementamos sistemas probados que automatizan y escalan tu negocio desde el día uno.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {/* Mentorías 1:1 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* E-commerce & Tiendanube */}
             <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg bg-white dark:bg-charcoal-800 animate-scale-in">
               <CardContent className="p-8 text-center h-full flex flex-col">
-                <Image
-                  src="/images/logo-mentorias.png"
-                  alt="Mentorías"
-                  width={64}
-                  height={64}
-                  className="object-contain w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
-                />
-                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Mentorías</h3>
+                <div className="w-20 h-20 rounded-2xl bg-orange-500/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <Code className="h-10 w-10 text-orange-500" />
+                </div>
+                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">E-commerce & Tiendanube</h3>
                 <p className="text-charcoal-600 dark:text-charcoal-300 mb-6 flex-grow">
-                  Sesiones personalizadas para acelerar tu crecimiento creativo y estratégico
+                  Tiendas online enfocadas en indumentaria, maximizadas para conversión y estética premium.
                 </p>
                 <Button
+                  asChild
                   variant="outline"
                   className="border-primary text-primary hover:bg-primary hover:text-white w-full group-hover:scale-105 transition-all duration-300"
                 >
-                  <Calendar className="mr-2 h-4 w-4" />
-                  Agendar en Calendly
+                  <Link href="mailto:contacto@estudiove.com">
+                    <Zap className="mr-2 h-4 w-4" />
+                    Cotizar Pack
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
 
-            {/* Desarrollo Web */}
+            {/* Sistemas de Turnos */}
             <Card
               className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg bg-white dark:bg-charcoal-800 animate-scale-in"
               style={{ animationDelay: "0.1s" }}
             >
               <CardContent className="p-8 text-center h-full flex flex-col">
-                <Image
-                  src="/images/logo-desarrollo.png"
-                  alt="Desarrollo de software"
-                  width={64}
-                  height={64}
-                  className="object-contain w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
-                />
-                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Desarrollo de software</h3>
+                <div className="w-20 h-20 rounded-2xl bg-orange-500/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <Calendar className="h-10 w-10 text-orange-500" />
+                </div>
+                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Sistemas de Turnos</h3>
                 <p className="text-charcoal-600 dark:text-charcoal-300 mb-6 flex-grow">
-                  Aplicaciones y software que potencian tu productividad y eficiencia
+                  Gestión integral para gimnasios y centros de salud, automatizando reservas y pagos.
                 </p>
                 <Button
                   asChild
                   variant="outline"
                   className="border-primary text-primary hover:bg-primary hover:text-white w-full group-hover:scale-105 transition-all duration-300"
                 >
-                  <Link href="/servicios">
-                    <Code className="mr-2 h-4 w-4" />
-                    Ver proyectos
+                  <Link href="mailto:contacto@estudiove.com">
+                    <Zap className="mr-2 h-4 w-4" />
+                    Cotizar Pack
                   </Link>
                 </Button>
               </CardContent>
             </Card>
 
-            {/* Marketing Digital */}
+            {/* Gestión Gastronómica */}
+            <Card
+              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg bg-white dark:bg-charcoal-800 animate-scale-in"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <CardContent className="p-8 text-center h-full flex flex-col">
+                <div className="w-20 h-20 rounded-2xl bg-orange-500/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <Lightbulb className="h-10 w-10 text-orange-500" />
+                </div>
+                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Gestión Gastronómica</h3>
+                <p className="text-charcoal-600 dark:text-charcoal-300 mb-6 flex-grow">
+                  Tu menú digital y sistema de pedidos con QR, directo a la mesa sin intermediarios.
+                </p>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-primary text-primary hover:bg-primary hover:text-white w-full group-hover:scale-105 transition-all duration-300"
+                >
+                  <Link href="mailto:contacto@estudiove.com">
+                    <Zap className="mr-2 h-4 w-4" />
+                    Cotizar Pack
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Landing Page Informativa */}
+            <Card
+              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg bg-white dark:bg-charcoal-800 animate-scale-in"
+              style={{ animationDelay: "0.3s" }}
+            >
+              <CardContent className="p-8 text-center h-full flex flex-col">
+                <div className="w-20 h-20 rounded-2xl bg-orange-500/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <Palette className="h-10 w-10 text-orange-500" />
+                </div>
+                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Landing Page Informativa</h3>
+                <p className="text-charcoal-600 dark:text-charcoal-300 mb-6 flex-grow">
+                  Páginas web rápidas, optimizadas para SEO y diseñadas para capturar leads y mostrar tu marca al mundo.
+                </p>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-primary text-primary hover:bg-primary hover:text-white w-full group-hover:scale-105 transition-all duration-300"
+                >
+                  <Link href="mailto:contacto@estudiove.com">
+                    <Zap className="mr-2 h-4 w-4" />
+                    Cotizar Premium
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Desarrollo Personalizado */}
             <Card
               className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg bg-white dark:bg-charcoal-800 animate-scale-in"
               style={{ animationDelay: "0.4s" }}
             >
               <CardContent className="p-8 text-center h-full flex flex-col">
-                <Image
-                  src="/images/logo-direccion.png"
-                  alt="Marketing Digital"
-                  width={64}
-                  height={64}
-                  className="object-contain w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
-                />
-                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Marketing Digital</h3>
+                <div className="w-20 h-20 rounded-2xl bg-orange-500/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <Rocket className="h-10 w-10 text-orange-500" />
+                </div>
+                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Desarrollo Personalizado</h3>
                 <p className="text-charcoal-600 dark:text-charcoal-300 mb-6 flex-grow">
-                  Estrategias de marketing que amplifican tu mensaje y hacen crecer tu negocio
+                  Sistemas complejos, CRMs, aplicaciones y portales corporativos para las necesidades únicas de tu empresa.
                 </p>
                 <Button
                   asChild
                   variant="outline"
                   className="border-primary text-primary hover:bg-primary hover:text-white w-full group-hover:scale-105 transition-all duration-300"
                 >
-                  <Link href="/servicios">
-                    <TrendingUp className="mr-2 h-4 w-4" />
-                    Ver estrategias
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Consultoría Estratégica */}
-            <Card
-              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg bg-white dark:bg-charcoal-800 animate-scale-in"
-              style={{ animationDelay: "0.5s" }}
-            >
-              <CardContent className="p-8 text-center h-full flex flex-col">
-                <Image
-                  src="/images/logo-automatizaciones.png"
-                  alt="Automatizaciones & Sistemas"
-                  width={64}
-                  height={64}
-                  className="object-contain w-24 h-24 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
-                />
-                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">
-                  Automatizaciones & Sistemas
-                </h3>
-                <p className="text-charcoal-600 dark:text-charcoal-300 mb-6 flex-grow">
-                  Automatizaciones y sistemas que potencian tu productividad y eficiencia
-                </p>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="border-primary text-primary hover:bg-primary hover:text-white w-full group-hover:scale-105 transition-all duration-300"
-                >
-                  <Link href="/servicios">
-                    <Lightbulb className="mr-2 h-4 w-4" />
-                    Solicitar consulta
+                  <Link href="mailto:contacto@estudiove.com">
+                    <Zap className="mr-2 h-4 w-4" />
+                    Cotizar Premium
                   </Link>
                 </Button>
               </CardContent>
             </Card>
           </div>
 
-         
+
         </div>
       </section>
 
@@ -393,65 +415,6 @@ export default function EstudioVePage() {
         </div>
       </section>
 
-      {/* Mentoría Section */}
-      <section
-        id="mentoria"
-        className="py-24 bg-gradient-to-br from-white to-cream-100 dark:from-charcoal-800 dark:to-charcoal-900"
-      >
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
-              <Users className="mr-2 h-4 w-4" />
-              Mentoría Personalizada
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Acelera tu <span className="text-primary">crecimiento</span>
-            </h2>
-            <p className="text-xl text-charcoal-600 dark:text-charcoal-300 mb-12 max-w-2xl mx-auto">
-              Sesiones 1:1 diseñadas para desbloquear tu potencial creativo y estratégico
-            </p>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="text-center group">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Users className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="font-bold mb-2">Personalizado</h3>
-                <p className="text-sm text-charcoal-600 dark:text-charcoal-400">
-                  Cada sesión adaptada a tus objetivos específicos
-                </p>
-              </div>
-              <div className="text-center group">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Lightbulb className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="font-bold mb-2">Estratégico</h3>
-                <p className="text-sm text-charcoal-600 dark:text-charcoal-400">
-                  Enfoque en resultados medibles y crecimiento sostenible
-                </p>
-              </div>
-              <div className="text-center group">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Star className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="font-bold mb-2">Probado</h3>
-                <p className="text-sm text-charcoal-600 dark:text-charcoal-400">
-                  Metodología validada con más de 500 creadores
-                </p>
-              </div>
-            </div>
-
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-white px-12 py-6 text-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl group"
-            >
-              <Calendar className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" />
-              Agendar mi sesión gratuita
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="bg-charcoal-800 text-white py-20">
         <div className="container mx-auto px-4">
@@ -493,14 +456,7 @@ export default function EstudioVePage() {
             <div>
               <h4 className="font-bold mb-6 text-lg">Servicios</h4>
               <ul className="space-y-3">
-                <li>
-                  <button
-                    onClick={() => scrollToSection("servicios")}
-                    className="text-charcoal-400 hover:text-primary transition-colors duration-300"
-                  >
-                    Mentorías 1:1
-                  </button>
-                </li>
+
                 <li>
                   <Link
                     href="/productos"
@@ -540,12 +496,12 @@ export default function EstudioVePage() {
                   </Link>
                 </li>
                 <li>
-                  <button
-                    onClick={() => scrollToSection("mentoria")}
+                  <Link
+                    href="/admin"
                     className="text-charcoal-400 hover:text-primary transition-colors duration-300"
                   >
-                    Agendar Mentoría
-                  </button>
+                    Portal del Cliente
+                  </Link>
                 </li>
                 <li>
                   <Link href="/blog" className="text-charcoal-400 hover:text-primary transition-colors duration-300">

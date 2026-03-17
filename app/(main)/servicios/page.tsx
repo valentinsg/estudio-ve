@@ -57,46 +57,7 @@ interface Service {
 }
 
 const services: Service[] = [
-  {
-    id: "mentoria-1-1",
-    name: "Mentorías 1:1",
-    description: "Sesiones personalizadas para acelerar tu crecimiento creativo y estratégico",
-    longDescription:
-      "Trabajamos juntos en sesiones individuales para identificar oportunidades, resolver desafíos específicos y crear un plan de acción personalizado para tu crecimiento profesional.",
-    startingPrice: 150,
-    duration: "1-2 horas",
-    category: "Consultoría",
-    rating: 4.9,
-    completedProjects: 500,
-    features: [
-      "Sesión personalizada 1:1",
-      "Análisis de situación actual",
-      "Plan de acción específico",
-      "Seguimiento por 30 días",
-      "Recursos y herramientas",
-      "Grabación de la sesión",
-    ],
-    deliverables: [
-      "Documento con plan de acción",
-      "Lista de recursos recomendados",
-      "Plantillas personalizadas",
-      "Acceso a comunidad privada",
-    ],
-    process: [
-      "Cuestionario previo detallado",
-      "Sesión de mentoría (1-2h)",
-      "Entrega de materiales",
-      "Seguimiento semanal (30 días)",
-    ],
-    icon: Users,
-    image: "/placeholder.svg?height=300&width=400",
-    testimonial: {
-      text: "La mentoría con Valentín cambió completamente mi enfoque. En 2 meses tripliqué mis ingresos.",
-      author: "María González",
-      role: "Diseñadora Freelance",
-      avatar: "/placeholder.svg?height=50&width=50",
-    },
-  },
+
   {
     id: "desarrollo-web",
     name: "Desarrollo Web",
@@ -315,11 +276,10 @@ export default function ServiciosPage() {
     <div className="min-h-screen bg-cream-50 dark:bg-charcoal-900 text-charcoal-800 dark:text-cream-50 transition-colors duration-300">
       {/* Header */}
       <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
             ? "bg-cream-50/95 dark:bg-charcoal-900/95 backdrop-blur-md shadow-lg border-b border-charcoal-200/20 dark:border-charcoal-700/20"
             : "bg-transparent"
-        }`}
+          }`}
       >
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">

@@ -6,24 +6,20 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@/components/analytics"
 import { Suspense } from "react"
 import JsonLdScript from "@/components/json-ld-script"
-import Header from "@/components/header"
 
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Estudio Ve | Creatividad, mentorías y desarrollo digital",
-  description: "Mentorías 1:1, desarrollo web y herramientas para creadores que quieren transformar su visión en impacto real.",
+  title: "Estudio Ve | Agencia de Software y Marketing Estratégico",
+  description: "Desarrollo de software 'enlatado', templates de alta calidad y estrategias de marketing medibles para escalar tu Pyme.",
   keywords: [
-    "mentorías para emprendedores",
-    "estudio creativo Argentina",
-    "desarrollo web freelance",
-    "herramientas para creadores",
-    "productos digitales educativos",
-    "automatización creativa",
-    "asesorías 1 a 1 Notion",
-    "Valentín Sánchez Guevara",
-    "Juan Carlos Sánchez",
+    "agencia de software",
+    "marketing estratégico",
+    "desarrollo web pymes",
+    "sistemas de turnos",
+    "tiendanube indumentaria",
+    "gestión gastronómica",
     "Estudio Ve Mar del Plata"
   ],
   authors: [{ name: "Valentín Sánchez Guevara" }],
@@ -43,8 +39,8 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "Estudio Ve | Creatividad y mentorías digitales",
-    description: "Aprendé, creá y escalá tu proyecto con herramientas, asesorías y contenido útil para creadores.",
+    title: "Estudio Ve | Agencia de Software y Marketing Estratégico",
+    description: "Desarrollo de software y estrategias de marketing medibles para escalar tu Pyme.",
     url: "https://estudiove.com",
     siteName: "Estudio Ve",
     images: [
@@ -60,8 +56,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Estudio Ve | Creatividad y mentorías digitales",
-    description: "Aprendé, creá y escalá tu proyecto con herramientas, asesorías y contenido útil para creadores.",
+    title: "Estudio Ve | Agencia de Software y Marketing Estratégico",
+    description: "Desarrollo de software y estrategias de marketing medibles para escalar tu Pyme.",
     images: ["/og-image.jpg"],
     creator: "@valsgdev",
     site: "@estudiove"
@@ -98,7 +94,6 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <Suspense fallback={<div>Loading...</div>}>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange={false}>
-            <Header />
             {children}
             <Analytics />
           </ThemeProvider>

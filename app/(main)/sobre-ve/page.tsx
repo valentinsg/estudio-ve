@@ -51,7 +51,7 @@ export default function SobreVePage() {
             Estudio Ve nació en 2020 en Mar del Plata como la unión creativa de dos hermanos que buscaban llevar sus ideas al siguiente nivel. Empezamos ofreciendo servicios de diseño y desarrollo para amigos y emprendimientos locales.
           </p>
           <p>
-            Con el tiempo fuimos sumando mentorías y productos digitales para ayudar a otros creadores a profesionalizar sus proyectos. Nuestra misión es brindar herramientas claras y acompañamiento estratégico para que las buenas ideas tengan el impacto que merecen.
+            Con el tiempo evolucionamos hacia una agencia enfocada en soluciones de software 'enlatadas' y estrategias de marketing medibles, diseñadas para ayudar a Pymes a escalar. Nuestra misión es brindar sistemas probados y acompañamiento estratégico para que tu negocio tenga el impacto que merece.
           </p>
           <p>
             Hoy seguimos creciendo junto a una comunidad de personas curiosas y emprendedoras que creen en el poder de la creatividad aplicada. Si querés conocer más o trabajar con nosotros, no dudes en contactarnos.

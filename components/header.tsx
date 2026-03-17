@@ -34,11 +34,10 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
           ? "bg-cream-50/95 dark:bg-charcoal-800/95 backdrop-blur-md shadow-md"
           : "bg-cream-50 dark:bg-charcoal-800"
-      }`}
+        }`}
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
@@ -49,9 +48,8 @@ export default function Header() {
                 alt="Estudio Ve"
                 width={180}
                 height={60}
-                className={`h-10 w-auto transition-all duration-300 ${
-                  theme === "dark" ? "brightness-0 invert" : ""
-                }`}
+                className={`h-10 w-auto transition-all duration-300 ${theme === "dark" ? "brightness-0 invert" : ""
+                  }`}
               />
             </Link>
           </div>
@@ -92,11 +90,13 @@ export default function Header() {
             <div className="flex items-center space-x-4">
               <DarkModeToggle />
               <Button
-                onClick={() => scrollToSection("mentoria")}
+                asChild
                 className="bg-primary hover:bg-primary/90 text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl group"
               >
-                <Sparkles className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform" />
-                Agendar Mentoría
+                <a href="mailto:contacto@estudiove.com">
+                  <Sparkles className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform" />
+                  Cotizar Proyecto
+                </a>
               </Button>
             </div>
           </nav>
@@ -153,11 +153,13 @@ export default function Header() {
                 Blog
               </Link>
               <Button
-                onClick={() => scrollToSection("mentoria")}
+                asChild
                 className="bg-primary hover:bg-primary/90 text-white w-full group"
               >
-                <Sparkles className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform" />
-                Agendar Mentoría
+                <a href="mailto:contacto@estudiove.com">
+                  <Sparkles className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform" />
+                  Cotizar Proyecto
+                </a>
               </Button>
             </nav>
           </div>

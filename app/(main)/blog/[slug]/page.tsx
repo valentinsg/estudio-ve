@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, use } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -106,7 +106,7 @@ Mide lo que importa:
 
 Una estrategia de contenido efectiva no es solo sobre crear más contenido, sino sobre crear el contenido correcto para las personas correctas en el momento correcto.
 
-¿Quieres profundizar más en este tema? Te invito a mi mentoría 1:1 donde podemos trabajar juntos en tu estrategia personalizada.
+¿Quieres profundizar más en este tema? Escríbenos para cotizar un proyecto y trabajar juntos en tu estrategia personalizada.
       `,
       author: "Valentín Sánchez Guevara",
       publishedAt: "2024-01-15",
@@ -141,7 +141,8 @@ const relatedPosts = [
   },
 ]
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+export default function BlogPostPage(props: { params: Promise<{ slug: string }> }) {
+  const params = use(props.params)
   const [post, setPost] = useState<BlogPost | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -163,10 +164,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       setIsScrolled(window.scrollY > 50)
 
       // Calculate reading progress
-      const article = document.querySelector(".article-content")
-      if (article) {
-        const articleTop = article.offsetTop
-        const articleHeight = article.offsetHeight
+      const element = document.querySelector(".article-content") as HTMLElement
+      if (element) {
+        const articleTop = element.offsetTop
+        const articleHeight = element.offsetHeight
         const windowHeight = window.innerHeight
         const scrollTop = window.scrollY
 
@@ -247,11 +248,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
       {/* Header */}
       <header
-        className={`fixed top-0 w-full z-40 transition-all duration-300 ${
-          isScrolled
+        className={`fixed top-0 w-full z-40 transition-all duration-300 ${isScrolled
             ? "bg-cream-50/95 dark:bg-charcoal-900/95 backdrop-blur-md shadow-lg border-b border-charcoal-200/20 dark:border-charcoal-700/20"
             : "bg-transparent"
-        }`}
+          }`}
         style={{ marginTop: "4px" }}
       >
         <div className="container mx-auto px-4 py-4">
@@ -290,7 +290,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                   asChild
                   className="bg-primary hover:bg-primary/90 text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
                 >
-                  <Link href="/#mentoria">Agendar Mentoría</Link>
+                  <Link href="mailto:contacto@estudiove.com">Cotizar Proyecto</Link>
                 </Button>
               </div>
             </nav>
@@ -327,7 +327,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                   Productos
                 </Link>
                 <Button asChild className="bg-primary hover:bg-primary/90 text-white w-full">
-                  <Link href="/#mentoria">Agendar Mentoría</Link>
+                  <Link href="mailto:contacto@estudiove.com">Cotizar Proyecto</Link>
                 </Button>
               </nav>
             </div>
@@ -477,11 +477,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                       <Button
                         variant="outline"
                         onClick={handleLike}
-                        className={`transition-all duration-300 ${
-                          isLiked
+                        className={`transition-all duration-300 ${isLiked
                             ? "bg-red-50 border-red-200 text-red-600 hover:bg-red-100 dark:bg-red-900/20 dark:border-red-800 dark:text-red-400"
                             : "hover:bg-red-50 hover:border-red-200 hover:text-red-600 dark:hover:bg-red-900/20"
-                        }`}
+                          }`}
                       >
                         <Heart className={`h-4 w-4 mr-2 ${isLiked ? "fill-current" : ""}`} />
                         {likes} Me gusta
@@ -512,7 +511,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                           Fundador de Estudio Ve. Ayudo a creadores a transformar ideas en impacto.
                         </p>
                         <Button asChild size="sm" className="w-full">
-                          <Link href="/#mentoria">Agendar Mentoría</Link>
+                          <Link href="mailto:contacto@estudiove.com">Cotizar Proyecto</Link>
                         </Button>
                       </div>
                     </Card>
